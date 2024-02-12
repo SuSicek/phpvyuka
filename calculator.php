@@ -32,7 +32,7 @@
                 break;
 
                 default:
-                return "Sorry No command found";
+                return "Nuh";
             }   
         }
         function getresult($a, $b, $c)
