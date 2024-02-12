@@ -1,50 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator Result</title>
-</head>
-<body>
-    <h2>Calculator Result</h2>
+<html>
+  <head>
+    <title>PHP Test</title>
+  </head>
+  <body>
     <?php
-    if (isset($_POST['submit'])) {
-        
-        $num1 = $_POST['num1'];
-        $num2 = $_POST['num2'];
-        $operator = $_POST['operator'];
 
-        
-        if (empty($num1) || empty($num2)) {
-            echo "Please fill all fields!";
-        } else {
-            
-            switch ($operator) {
+    $result = "";
+    class calculator
+    {
+        var $a;
+        var $b;
+
+        function checkoperation($operator)
+        {
+            switch($operator)
+            {
                 case '+':
-                    $result = $num1 + $num2;
-                    break;
+                return $this->a + $this->b;
+                break;
+
                 case '-':
-                    $result = $num1 - $num2;
-                    break;
+                return $this->a - $this->b;
+                break;
+
                 case '*':
-                    $result = $num1 * $num2;
-                    break;
+                return $this->a * $this->b;
+                break;
+
                 case '/':
-                    if ($num2 == 0) {
-                        echo "Cannot divide by zero!";
-                        break;
-                    } else {
-                        $result = $num1 / $num2;
-                        break;
-                    }
+                return $this->a / $this->b;
+                break;
+
                 default:
-                    echo "Invalid operator!";
-                    break;
-            }
-            
-            echo "Result: $num1 $operator $num2 = $result";
+                return "Sorry No command found";
+            }   
+        }
+        function getresult($a, $b, $c)
+        {
+            $this->a = $a;
+            $this->b = $b;
+            return $this->checkoperation($c);
         }
     }
+
+    checkoperation($operator);
+    $cal = new calculator();
+    if(isset($_POST['submit']))
+    {   
+        $result = $cal->getresult($_POST['n1'],$_POST['n2'],$_POST['op']);
+    }  
+
+    echo $result;
     ?>
-</body>
+
+  </body>
 </html>

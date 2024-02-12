@@ -1,22 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-</head>
+<html>
 <body>
-    <h2>Simple Calculator</h2>
-    <form action="calculator.php" method="post">
-        <input type="text" name="num1" placeholder="Enter first number">
-        <select name="operator">
-            <option value="+">Addition (+)</option>
-            <option value="-">Subtraction (-)</option>
-            <option value="*">Multiplication (*)</option>
-            <option value="/">Division (/)</option>
-        </select>
-        <input type="text" name="num2" placeholder="Enter second number">
-        <button type="submit" name="submit">Calculate</button>
-    </form>
+
+<h1>Calculator</h1>
+
+<form oninput="x.value=eval(a.value + op.value + b.value)">
+  <input type="text" id="a" value="">
+    <td><select name="op">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </td>
+  +<input type="text" id="b" value="">
+  =<output name="x" for="a b"></output>
+</form>
 </body>
 </html>
